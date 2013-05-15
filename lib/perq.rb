@@ -3,3 +3,5 @@ require 'thread'
 
 module Perq
 end
+
+require 'perq/job'
