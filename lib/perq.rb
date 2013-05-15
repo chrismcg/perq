@@ -6,3 +6,4 @@ end
 
 require 'perq/job'
 require 'perq/project_queue'
+require 'perq/pending_queue'
