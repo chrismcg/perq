@@ -1,6 +1,3 @@
-require 'celluloid'
-require 'thread'
-
 module Perq
 	class Job
 		def initialize(name)
