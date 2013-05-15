@@ -8,7 +8,7 @@ Feature: Per project queue
     Given a queue and two workers
     When I add one job to the queue
     Then the job should get run
-
+    
   Scenario: Processing two jobs on a single queue
     Given a queue and two workers
     When I add two jobs to the queue
@@ -18,12 +18,12 @@ Feature: Per project queue
     Given two queues and two workers
     When I add one job to each queue
     Then the jobs should be run in parallel
-
+  
   Scenario: Processing two jobs on each of two projects
     Given two queues and two workers
     When I add two jobs to each queue
     Then each queues jobs should be run serially in the order they were added to the queue but both queues job should be executing in parallel
-
+  
   Scenario: Handling a failing job
     Given a queue and a worker
     When I add a bad job to the queue with a retry count of 2
