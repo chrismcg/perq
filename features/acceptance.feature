@@ -24,6 +24,7 @@ Feature: Per project queue
     When I add two jobs to each queue
     Then each queues jobs should be run serially in the order they were added to the queue but both queues job should be executing in parallel
 
+  @wip
   Scenario: Handling a failing job
     Given a queue and a worker
     When I add a bad job to the queue with a retry count of 2
