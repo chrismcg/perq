@@ -1,26 +1,16 @@
 class Perq::Job
+  attr_reader :name
+
   def initialize(name)
     @ran = false
     @name = name
-    @condvar = ConditionVariable.new
-    @mutex = Mutex.new
-  end
-
-  def wait
-    @mutex.synchronize do
-      return if ran?
-      @condvar.wait(@mutex)
-    end
   end
 
   def run(queue_name)
-    $output[queue_name] << @name
-    @ran = true
-    @condvar.signal
+    raise "Need to implement the run method"
   end
 
   def ran?
     @ran
   end
 end
-

@@ -8,7 +8,7 @@ Given(/^a queue and two workers$/) do
 end
 
 When(/^I add one job to the queue$/) do
-  @job = Perq::Job.new("job1")
+  @job = Perq::TestJob.new("job1")
   @project_queue.push(@job)
 end
 
@@ -18,9 +18,9 @@ Then(/^the job should get run$/) do
 end
 
 When(/^I add two jobs to the queue$/) do
-  @job1 = Perq::Job.new("job1")
+  @job1 = Perq::TestJob.new("job1")
   @project_queue.push(@job1)
-  @job2 = Perq::Job.new("job2")
+  @job2 = Perq::TestJob.new("job2")
   @project_queue.push(@job2)
 end
 
@@ -37,9 +37,9 @@ Given(/^two queues and two workers$/) do
 end
 
 When(/^I add one job to each queue$/) do
-  @job1 = Perq::Job.new("job1")
+  @job1 = Perq::TestJob.new("job1")
   @project_queue1.push(@job1)
-  @job2 = Perq::Job.new("job2")
+  @job2 = Perq::TestJob.new("job2")
   @project_queue2.push(@job2)
 end
 
@@ -51,12 +51,12 @@ Then(/^the jobs should be run in parallel$/) do
 end
 
 When(/^I add two jobs to each queue$/) do
-  @job1q1 = Perq::Job.new("job1q1")
-  @job2q1 = Perq::Job.new("job2q1")
+  @job1q1 = Perq::TestJob.new("job1q1")
+  @job2q1 = Perq::TestJob.new("job2q1")
   @project_queue1.push(@job1q1)
   @project_queue1.push(@job2q1)
-  @job1q2 = Perq::Job.new("job1q2")
-  @job2q2 = Perq::Job.new("job2q2")
+  @job1q2 = Perq::TestJob.new("job1q2")
+  @job2q2 = Perq::TestJob.new("job2q2")
   @project_queue2.push(@job1q2)
   @project_queue2.push(@job2q2)
 end
